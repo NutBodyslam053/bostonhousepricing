@@ -9,17 +9,17 @@ conda create -p venv python==3.7 -y
 # Activate the environment
 conda activate venv/
 
-# install requirements
+# Install requirements
 pip install -r requirements.txt
 
-# set git repository & global options
+# Set git repository & global options
 git config --global user.name "NutBodyslam053"
 git config --global user.email "seklosoann@gmail.com"
 
-# run web application
+# Run web application
 python app.py
 
-# test application via postman
+# Test application via postman
 POST http://127.0.0.1:5000/predict_api
 raw:
 {
