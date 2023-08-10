@@ -1,5 +1,5 @@
 import pickle
-from flask import Flask, request, app, jsonify, url_for, render_template
+from flask import Flask, request, app, jsonify, render_template
 import numpy as np
 import pandas as pd
 
@@ -14,7 +14,6 @@ def home():
     return render_template('home.html')
 
 @app.route('/predict_api', methods=['POST'])
-
 def predict_api():
     data = request.json['data']
     print("Raw Data:", data)
@@ -28,10 +27,13 @@ def predict_api():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = [float(x) for x in request.form.values()]
+    print("Data Input:", data)
     final_input = scaler.transform(np.array(data).reshape(1,-1))
     print("Final Input:", final_input)
     output = regmodel.predict(final_input)[0]
+    print("Output:", output)
     return render_template("home.html", prediction_text="The House Price prediction is {}".format(output))
+
 
 if __name__=="__main__":
     app.run(debug=True)
