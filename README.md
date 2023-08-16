@@ -1,7 +1,7 @@
 # Boston House Pricing Prediction
 
 
-Workflow
+## Workflows
 ```bash
 # Create a new environment
 conda create -p venv python==3.7 -y
@@ -13,13 +13,16 @@ conda activate venv/
 pip install -r requirements.txt
 
 # Set git repository & global options
-git config --global user.name "NutBodyslam053"
-git config --global user.email "seklosoann@gmail.com"
+git config --global user.name <user_name>
+git config --global user.email <email>
+
+# List all variables set in config file, along with their values.
+git config -l
 
 # Run web application
 python app.py
 
-# Test application via postman
+# Test application via Postman
 POST http://127.0.0.1:5000/predict_api
 raw:
 {
@@ -40,3 +43,6 @@ raw:
     }
 }
 ```
+
+# Test application via Web-UI
+> http://127.0.0.1:5000/predict
